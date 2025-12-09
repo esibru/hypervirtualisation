@@ -14,7 +14,7 @@
 - Pré-requis : *néant*
 - Co-requis : *néant*
 
-## Description générale du cours
+## Description générale de l'unité d'enseignement
 
 Ce cours vise à introduire les principes de virtualisation et de conteneurisation. Les étudiants apprendront à installer et configurer des hyperviseurs, à gérer des machines virtuelles, à déployer des conteneurs et à automatiser la gestion de ces infrastructures avec des outils modernes. Une attention particulière est portée à l’utilisation d’outils industriels et à la collaboration en groupe.
 
@@ -84,7 +84,7 @@ Au sein de la formation de bachelier en informatique, cette activité d’appren
 
 ## Modalités d’évaluations
 
-Première session : évaluation continue. 
+Première session : évaluation continue avec défense individuelle de son travail.  
 Seconde session : présentation et défense du travail à faire au labo. 
 
 ## Contenus
@@ -98,7 +98,7 @@ Seconde session : présentation et défense du travail à faire au labo.
 7. Automatisation avec Ansible
 8. Automatisation avec Ansible (suite)
 9. Conteneurisation avec Docker
-11.Présentation de l'orchestration avec Kubernetes
+11. Présentation de l'orchestration avec Kubernetes
 
 
 ## Bibliographie
