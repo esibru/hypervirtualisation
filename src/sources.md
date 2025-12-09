@@ -39,3 +39,8 @@
 [kvm]:http://www.linux-kvm.org/page/Main_Page
 [libvirt]:http://libvirt.org/
 
+[DevStack - Get started on OpenStack with DevStack](https://www.redhat.com/en/blog/get-started-openstack-devstack) (_consulté le 30 juin 2025_)
+
+[Cloud-init](https://cloud-init.io/) (_consulté le 30 juin 2025_)
+
+[GNU Linux Pratique 131 - Article : Simplifiez votre création de VM avec cloud-init.](https://boutique.ed-diamond.com/home/1621-linux-pratique-131.html) (_consulté le 30 juin 2025_)
