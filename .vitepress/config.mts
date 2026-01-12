@@ -26,7 +26,7 @@ export default defineConfig({
           { text: 'Réseau', link: '/reseaux' },
           { text: 'Stockage', link:  '/stockage'},
           { text: 'Conteneurisation', link: '/conteneurisation'},
-          { text: 'Virtualisation 2', link: 'virtualisation-2'},
+          { text: 'Virtualisation 2', link: '/virtualisation-2'},
           { text: 'Automatisation (Ansible)', link: '/ansible'}
         ]
       },
@@ -52,7 +52,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-        { icon: 'github', link: 'https://github.com/pbettens/hypervirtualisation' }
+        { icon: 'github', link: 'https://github.com/esibru/hypervirtualisation' }
     ],
 
     lastUpdated: {
@@ -64,7 +64,7 @@ export default defineConfig({
     },
 
     footer: {
-        copyright: 'CC-BY 2025 ♥'
+        copyright: 'CC-BY 2025-2026 ♥'
     },
 
     search: {
