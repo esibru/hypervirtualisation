@@ -11,10 +11,12 @@ export default defineConfig({
   srcDir: './src',
   outDir: './public',
   lastUpdated: true,
+  head: [
+    ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' }]
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/home' },
       { text: 'Cours', link: '/' }
     ],
 
