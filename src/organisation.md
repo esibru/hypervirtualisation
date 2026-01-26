@@ -4,6 +4,12 @@
 
 L'évaluation est continue, elle consiste à la présentation des différentes étapes à réaliser (cfr. _check list_ ci-dessous).
 
+Un rapport complet est rédigé au fil des séances, au format **markdown**. Ce rapport est rédigé par groupe. 
+
+:::warning 
+Bien que la défense et le rapport soient commun à un groupe, la cote est individuelle. 
+::: 
+
 Pour la _seconde session_, toutes les étapes doivent être présentées. 
 
 ## Planning
@@ -31,9 +37,7 @@ Le travail au cours se fait par équipe de 4 personnes. Il y a 2, 3 ou 4 équipe
 
 Une séance de cours se compose de : une présentation théorique de 15-30 min, de travail en équipe et d'une clôture qui consiste à présenter aux autres le travail effectué. 
 
-:::warning 
-Un rapport complet est rédigé au fil des séances, au format **markdown**  et dans un dépôt **git**. 
-:::
+Pour rappel, un rapport complet est rédigé au fil des séances, au format **markdown**  et dans un dépôt **git**. Ce rapport est rédigé par équipe. 
 
 ### *Check list* 
 
