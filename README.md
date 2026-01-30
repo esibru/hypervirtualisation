@@ -14,7 +14,7 @@ _Hypervirtualisation ou virtualisation mais sûrement pas hypervision_
 Une première version a utilisé _eleventy_ (_11ty_). Actuellement, la publication se fait grâce à **vitepress**. 
 
 La configuration se trouve dans `.vitepress/config.mts` et les fichiers sources dans `src`. Une action github met les pages à disposition à  
-[pbettens.github.io/hypervirtualisation](https://pbettens.github.io/hypervirtualisation)
+[esibru.github.io/hypervirtualisation](https://esibru.github.io/hypervirtualisation)
 
 Pour tester localement : 
 
