@@ -67,8 +67,20 @@ _(Cette liste sera construite au fur et à mesure du cours)_
 
 Toutes les machines sont connectées dans le même _switch_ non configuré et sont toutes dans le même _range_ IP. Il n'y a aucune configuration à faire **excepté** une configuration statique des IP.
 
-Nous utilisons le _range_ d'IP du réseau expérimental : 
+Nous utilisons dans le _range_ d'IP du réseau expérimental, le _range_ :  
+`192.168.217-218.0 /18` 
 
-- Range d'IP : `192.168.192.0/18`
-- _Default gateway_ : `192.168.192.1`
-- Par convention, chaque groupe se voit attribuer un _range_ dans `192.168.217.X` où `1 ≤ X ≤ 254`.
+|Usage|Range
+|--|--
+|_Default gateway_ | `192.168.192.1`
+|Pour l’hyperviseur, les machines virtuelles, les conteneurs… / groupe.<br/><br/>groupe 1<br/>groupe 2<br/>groupe 3<br/>groupe 4<br/>| `192.168.217.0-250 /18`<br/><br/>`192.168.217.0-49 /18`<br/>`192.168.217.50-99 /18`<br/>`192.168.217.100-149 /18`<br/>`192.168.217.150-199 /18`
+|_zeus_<br/>SAN (isci)|`192.168.217.255 /18`
+|wifi|`192.168.217.254 /18`
+|Range IP pour les utilisateurices | `192.168.218.0 /18`
+
+_Les autres détails (credentials, attribution d'IP…) sont donnés au laboratoire._
+
+
+
+
+
