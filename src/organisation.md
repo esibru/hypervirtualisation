@@ -73,6 +73,7 @@ Nous utilisons dans le _range_ d'IP du réseau expérimental, le _range_ :
 |Usage|Range
 |--|--
 |_Default gateway_ | `192.168.192.1`
+|_Domain Name Server_ | `192.168.217.255`
 |Pour l’hyperviseur, les machines virtuelles, les conteneurs… / groupe.<br/><br/>groupe 1<br/>groupe 2<br/>groupe 3<br/>groupe 4<br/>| `192.168.217.0-250 /18`<br/><br/>`192.168.217.0-49 /18`<br/>`192.168.217.50-99 /18`<br/>`192.168.217.100-149 /18`<br/>`192.168.217.150-199 /18`
 |_zeus_<br/>SAN (isci)|`192.168.217.255 /18`
 |wifi|`192.168.217.254 /18`
