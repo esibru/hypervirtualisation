@@ -37,6 +37,7 @@ export default defineConfig({
         items: [
             { text: 'Outils', link : '/outils'},
             { text: 'Bridge', link: '/bridge'},
+            { text: 'RAID', link: '/raid'},
             { text: 'LVM', link: '/lvm'},
             { text: 'NFS', link: '/nfs'},
             { text: 'iSCI', link: '/isci'},
