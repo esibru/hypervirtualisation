@@ -8,7 +8,7 @@
 - 1970-1980, la virtualisation est moins utile puisque les PCs se démocratisent;
 - 1990, croissance d'internet et des besoins;
 - 1998 création de VMWare;
-- 2003 création de Xen (_open source_) mort depuis;
+- 2003 création de Xen (_open source_), hébergé depuis 2013 par la Linux Foundation. Encore utilisé notamment par [AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#instance-hypervisor-type), Citrix et Oracle, mais supplanté par KVM dans de nombreux cas d'usage;
 - 2007 KVM (_Kernel-based Virtual Machine_) est intégré au noyau linux;
 - 2010… virtualisation « partout »;
 - 2024 VMWare est racheté par Broadcom qui met fin aux licences « éducation ».
@@ -31,22 +31,27 @@ _Source IBM. Photo promotionnelle (1964) pour l'IBM 360_
 
 Un **hyperviseur de Type 1**, **natif**, voire « **_bare metal_** » est un logiciel qui s'exécute directement sur une plateforme matérielle.
 
+<div class="float-right">
+
+![Hyperviseur de type 1 (Source Wikipedia)](assets/img/Diagramme_ArchiHyperviseur_type1.png)  
+_(Source : Wikipedia - Hyperviseur de type 1)_
+
+</div>
+
 L'hyperviseur de type 1 est un noyau hôte allégé et optimisé. 
 
 Exemples : 
 
 - CP, développé par IBM (_obsolète_) 
-- Xen (_obsolète_)
+- [Xen](https://xenproject.org/projects/hypervisor/)
 - Microsoft Hyper-V
 - ESXI Server  (VMware)
     - propriétaire
     - support professionnel 
 - KVM
-- Proxmox (utilise KVM et LXC (_LinuX Container_))
+- [Proxmox](https://www.proxmox.com/en/) (utilise KVM et LXC (_LinuX Container_))
     - _open source_ basée sur Debian
 
-![Hyperviseur de type 1 (Source Wikipedia)](assets/img/Diagramme_ArchiHyperviseur_type1.png)  
-_(Source : Wikipedia - Hyperviseur de type 1)_
 
 
 
@@ -55,14 +60,20 @@ _(Source : Wikipedia - Hyperviseur de type 1)_
 Un **hyperviseur de type 2** est un logiciel qui s'exécute à l'intérieur d'un autre système d'exploitation. Un système d'exploitation invité s'exécutera donc en troisième niveau au-dessus du matériel. Les systèmes d'exploitation invités n'ayant pas conscience d'être virtualisés, ils n'ont pas besoin d'être adaptés. 
 On peut parler d'**émulation**. 
 
+<div class="float-right">
+
+![Hyperviseur de type 2 (Source Wikipedia)](assets/img/Diagramme_ArchiEmulateur_type2.png)  
+_(Source : Wikipedia - Hyperviseur de type 2)_
+
+</div>
+
+
 Exemples : 
 
 - VMware Workstation
 - QEMU 
 - Virtual PC
 - VirtualBox d'Oracle
-![Hyperviseur de type 2 (Source Wikipedia)](assets/img/Diagramme_ArchiEmulateur_type2.png)  
-_(Source : Wikipedia - Hyperviseur de type 2)_
 
 > Une **machine virtuelle** (VM _virtual machine_) est une machine physique simulée de manière logicielle. Une machine virtuelle exécute un OS (_operating system_) complet, isolé des autres. 
 
