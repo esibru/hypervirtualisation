@@ -76,3 +76,49 @@ Par exemple
 :~# ip -d link show eth0.5
 ```
 
+## Agrégation de liens
+
+L'agrégation de liens (_bonding_) permet de combiner plusieurs interfaces réseau physiques en une seule interface logique. Cela offre de la redondance et/ou une augmentation de la bande passante.
+
+### Ajout du module au noyau
+
+```bash
+:~# modprobe bonding
+```
+
+### Création d'une interface bond
+
+```bash
+:~# ip link add bond0 type bond mode <mode>
+:~# ip link set dev <interface1> master bond0
+:~# ip link set dev <interface2> master bond0
+:~# ip link set dev bond0 up
+:~# ip addr add <IP/mask> dev bond0
+```
+
+  1. création de l'interface bond avec un mode spécifique
+  2. ajout de la première interface physique au bond
+  3. ajout de la deuxième interface physique au bond
+  4. activation de l'interface bond
+  5. attribution d'une adresse IP au bond
+
+
+Modes de bonding :
+
+- **mode 0 (balance-rr)** : Round-robin, répartition de charge
+- **mode 1 (active-backup)** : Une interface active, les autres en backup
+- **mode 2 (balance-xor)** : Répartition basée sur les adresses MAC
+- **mode 4 (802.3ad)** : Agrégation dynamique selon IEEE 802.3ad (LACP)
+- **mode 5 (balance-tlb)** : Équilibrage de charge adaptatif en transmission
+- **mode 6 (balance-alb)** : Équilibrage de charge adaptatif
+
+Pour rendre la configuration persistante, il suffit d'éditer `/etc/network/interfaces` :
+
+```conf
+auto bond0
+iface bond0 inet static
+  address <IP>/<mask>
+  bond-slaves <interface1> <interface2>
+  bond-mode <mode>
+  bond-miimon 100
+```
