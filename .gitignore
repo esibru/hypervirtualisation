@@ -6,6 +6,8 @@
 !.gitignore
 !.vitepress/
 !.vitepress/config.mts
+!.vitepress/theme
+!.vitepress/theme/**
 !package.json
 !package-lock.json 
 !assets/
