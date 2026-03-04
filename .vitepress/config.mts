@@ -40,7 +40,7 @@ export default defineConfig({
             { text: 'RAID', link: '/raid'},
             { text: 'LVM', link: '/lvm'},
             { text: 'NFS', link: '/nfs'},
-            { text: 'iSCI', link: '/isci'},
+            { text: 'iSCSI', link: '/iscsi'},
             { text: 'Docker', link: '/docker'},
             { text: 'Cloud-init', link: '/cloud-init'}
         ]
