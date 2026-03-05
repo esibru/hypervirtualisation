@@ -61,7 +61,7 @@ _(Cette liste sera construite au fur et à mesure du cours)_
 
 [^f2]: Au minimum un service a son _storage_ sur le SAN commun.
 
-## Aspects pratiques et réseaux
+## Aspects pratiques
 
 ### Configuration réseau
 
@@ -81,7 +81,59 @@ Nous utilisons dans le _range_ d'IP du réseau expérimental, le _range_ :
 
 _Les autres détails (credentials, attribution d'IP…) sont donnés au laboratoire._
 
+### Configuration du stockage réseau
 
+La machine `zeus` propose du stockage distant de type [iSCSI](iscsi.md). 
 
+Chaque groupe de classe dispose de :
+- **1 cible iSCSI** dédiée : `iqn.2026-03.info.esigoto.in.zeus:c21X`
+- **5 équipes** possibles par classe
+
+Chaque équipe dispose de :
+- **1 LUN iSCSI de 1 To** (_thin provisioned_)
+- Format de nommage : `grpX.Y` (X = numéro de classe 1-4, Y = numéro d'équipe 1-5)
+- **Initiator IQN** à configurer : `iqn.2026-03.info.esigoto.in-grp-X.Y:proxmox`
+
+Quelques étapes de configuration : 
+
+1. configurer l'_initiator_ sur Proxmox _via_ le fichier de configuration `/etc/iscsi/initiatorname.iscsi`
+
+2. ajouter ses _credentials_
+
+3. lister les ressources disponibles sur `zeus` :
+
+    ```bash
+    ~# iscsiadm -m discovery -t sendtargets -p 192.168.217.255
+    192.168.217.255:3260,1 iqn.2026-03.info.esigoto.in.zeus:c211
+    192.168.217.255:3260,1 iqn.2026-03.info.esigoto.in.zeus:c212
+    192.168.217.255:3260,1 iqn.2026-03.info.esigoto.in.zeus:c213
+    192.168.217.255:3260,1 iqn.2026-03.info.esigoto.in.zeus:c214
+    ```
+
+4. lister les disques 
+
+    ```bash
+    ~# lsscsi 
+    [0:2:0:0]    disk    DELL     PERC H730P Mini  4.30  /dev/sda 
+    [15:0:0:1]   disk    LIO-ORG  iscsi-grp-4.1    4.0   /dev/sdf 
+    [15:0:0:2]   disk    LIO-ORG  iscsi-grp-4.2    4.0   /dev/sde 
+    [15:0:0:3]   disk    LIO-ORG  iscsi-grp-4.3    4.0   /dev/sdd 
+    [15:0:0:4]   disk    LIO-ORG  iscsi-grp-4.4    4.0   /dev/sdc 
+    [15:0:0:5]   disk    LIO-ORG  iscsi-grp-4.5    4.0   /dev/sdb 
+    [15:0:0:11]  disk    LIO-ORG  iscsi-grp4.teac  4.0   /dev/sdg 
+    ```
+
+Les disques sont utilisables avec Proxmox.
+
+:::warning
+Les _credentials_  (login et mot de passe) sont donnés oralement au cours. 
+:::
+
+:::danger
+**Attention** : Le stockage est en thin provisioning
+- Total physique disponible : **4,5 To** partagés entre tous les groupes
+- Capacité virtuelle par LUN : 1 To
+- Surveiller votre utilisation réelle pour éviter la saturation globale
+::: 
 
 

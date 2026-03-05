@@ -89,11 +89,60 @@ Le reste se fait ensuite du côté des clients.
 
 ### Un client
 
-C'est l'**initiator** le client qui se connecte à la target pour utiliser les disques. Pour la compréhension, il est possible de le faire avec le paquet `open-iscsi` (cfr. [iSCSI : créer des disques virtuels en réseau sous Linux - Configurer l'initator](https://blog.stephane-robert.info/docs/services/stockage/iscsi/#configurer-linitiator-client)). Dans la pratique et dans le cadre de notre labo, ce sera Proxmox qui s'en charge. 
+C'est l'**initiator** le client qui se connecte à la target pour utiliser les disques. Sous linux — et donc également pour Proxmox — c'est le paquet `open-iscsi` qui s'en charge. 
 
-TODO ajouter la méthode et des screenshots. 
+:::tip 
+Sur une machine Proxmox le paquet est déjà installé mais on peut le vérifier. Dans la foulée, installer le paquet `lsscsi` s'il ne l'est pas. 
+:::
+
+- configurer le nom de l'initiator dans le fichier `/etc/iscsi/initiatorname.iscsi`. Ce nom **correspond exactement** à celui défini plus haut `iqn.2026-03.zeus:target01` et correspondant à une ACL sur la _target_.
+
+    ```conf
+    InitatorName=iqn.2026-03.zeus:target01
+    ```
+
+- donner ses _credentials_. Dans le fichier `/etc/iscsi/iscsid.conf`, chercher les lignes suivantes et les mettre à jour : 
+
+    ```bash 
+    node.session.auth.authmethod = CHAP
+    node.session.auth.username = <login>
+    node.session.auth.password = <password>
+    ```
+
+Il est possible de vérifier (la connexion et) la liste des ressources sur la _target_ : 
+
+- lister les ressources disponibles sur la _target_
+
+    ```bash 
+    iscsiadm -m discovery -t sendtargets -p <IP>
+    ```
+
+- se connecter 
+
+    ```bash
+    iscsiadm -m node \
+        -T iqn.2026-03.zeus:target01 \
+        -p <IP> --login
+    ```
+
+- lister les sessions actives
+
+    ```bash 
+    iscsiadm -m session -o show
+    ```
+
+- vérifier les disques disponibles (LUN _logic unit_)
+
+    ```bash
+    lsscsi
+    ```
 
 
+Le reste pourra se faire à partir de l'interface de Proxmox en ajoutant un stockage iSCSI.
+
+![screenshot](assets/img/proxmox-iscsi.png "Screenshot Proxmox, ajout d'un stockage iSCSI")
+
+TODO vérifier sur proxmox.
 
 ## TrueNAS
 
