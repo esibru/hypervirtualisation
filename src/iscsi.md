@@ -98,4 +98,4 @@ TODO ajouter la méthode et des screenshots.
 ## TrueNAS
 
 TODO
-- à voir si ma correspond à nos besoins
+- à voir si ça correspond à nos besoins. j'ai (pbt) l'impression que c'est un peu l'artillerie lourde
