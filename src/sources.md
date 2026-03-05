@@ -52,3 +52,5 @@
 [Guide RAID RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_storage_devices/managing-raid_managing-storage-devices) (_consulté le 9 février 2026_)
 
 [Les fonctionnalités de Linux Bridge sur Proxmox VE](https://technonagib.fr/fonctionnalites-linux-bridge-proxmox-ve/) (_consulté le 11 février 2026_)
+
+[iSCSI : créer des disques virtuels en réseau sous Linux](https://blog.stephane-robert.info/docs/services/stockage/iscsi/) (_consulté le 5 mars 2026_)
