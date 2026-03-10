@@ -69,7 +69,13 @@ Préparer le stockage, c'est, une fois la commande `targetcli` lancée :
     /iscsi> create iqn.2026-03.zeus:target01
     ```
 
-- créer (éventuellement) des ACL pour autoriser un ou plusieurs **initiator**
+- créer des ACL pour autoriser un ou plusieurs **initiator**
+
+    ```bash
+    /> cd /iscsi/iqn.2026-03.zeus:target01/tpg1/acls
+    /iscsi/.../acls> create iqn.2026-03.zeus:<login>
+    ```
+
 - associer le ou les backstores à la target
 
     ```bash
