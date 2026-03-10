@@ -76,6 +76,15 @@ Préparer le stockage, c'est, une fois la commande `targetcli` lancée :
     /iscsi/.../acls> create iqn.2026-03.zeus:<login>
     ```
 
+- ajouter un _login / password_ pour la connection _via_ **CHAP** (_Challenge-Handshake Authentication Protocol_)
+
+    ```bash
+    /> cd /iscsi/iqn.2026-03.zeus:target01/tpg1/acls/iqn.2026-03.zeus:<login>
+    /iscsi/.../iqn.2026-03.zeus:<login>> set auth userid=<login>
+    /iscsi/.../iqn.2026-03.zeus:<login>> set auth password=<password>
+    ```
+
+
 - associer le ou les backstores à la target
 
     ```bash
