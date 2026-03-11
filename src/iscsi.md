@@ -80,6 +80,7 @@ Préparer le stockage, c'est, une fois la commande `targetcli` lancée :
 
     ```bash
     /> cd /iscsi/iqn.2026-03.zeus:target01/tpg1/acls/iqn.2026-03.zeus:<login>
+    /iscsi/.../iqn.2026-03.zeus:<login>> set attribute authentication=1
     /iscsi/.../iqn.2026-03.zeus:<login>> set auth userid=<login>
     /iscsi/.../iqn.2026-03.zeus:<login>> set auth password=<password>
     ```
@@ -157,9 +158,27 @@ Le reste pourra se faire à partir de l'interface de Proxmox en ajoutant un stoc
 
 ![screenshot](assets/img/proxmox-iscsi.png "Screenshot Proxmox, ajout d'un stockage iSCSI")
 
-TODO vérifier sur proxmox.
+En quelques étapes : 
+
+- Ajout du stockage iSCIS distant
+
+    ![screenshot](assets/img/proxmox-iscsi-1.png "Screenshot Proxmox, ajout d'un stockage iSCSI")
+ 
+    L'**id** peut être choisi, le **portal** est l'IP et les targets devraient apparaitre. 
+    ![screenshot](assets/img/proxmox-iscsi-2.png "Screenshot Proxmox, ajout d'un stockage iSCSI")
+
+- Ajouter un disque, par exemple LVM
+
+    ![screenshot](assets/img/proxmox-iscsi-3.png "Screenshot Proxmox, ajout d'un stockage iSCSI")
+
+    Les LUN disponibles devraient apparaitre, en choisir un.
+
+    ![screenshot](assets/img/proxmox-iscsi-4.png "Screenshot Proxmox, ajout d'un stockage iSCSI")
+
+
 
 ## TrueNAS
 
-TODO
-- à voir si ça correspond à nos besoins. j'ai (pbt) l'impression que c'est un peu l'artillerie lourde
+**TrueNAS** est une solution complète et intégrée de stockage en réseau basée sur FreeBSD. Contrairement à **LIO** qui est un framework bas niveau nécessitant une configuration manuelle détaillée, TrueNAS offre une interface web intuitive et une gestion centralisée du stockage.
+
+_TODO_
