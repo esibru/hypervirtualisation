@@ -181,4 +181,4 @@ En quelques étapes :
 
 **TrueNAS** est une solution complète et intégrée de stockage en réseau basée sur FreeBSD. Contrairement à **LIO** qui est un framework bas niveau nécessitant une configuration manuelle détaillée, TrueNAS offre une interface web intuitive et une gestion centralisée du stockage.
 
-_TODO_
+Le serveur TrueNAS est accessible à cette addresse : https://192.168.1.200
