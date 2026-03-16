@@ -1,11 +1,5 @@
 # Docker 
 
-:::warning
-
-Dans le cas d'un hyperviseur, il est inutile d'installer Docker dès lors que l'hyperviseur gère la conteneurisation. 
-
-:::
-
 ## Installation 
 
 L'installation de Docker se résume à `apt install docker.io`. Les dépendances du packet sont : 
@@ -392,6 +386,55 @@ Lancer l'image nouvellement créée se fait par :
 [Containers from scratch](http://ericchiang.github.io/post/containers-from-scratch) Utilise _cgroup v1_ et pas _v2_.
 :::
 
+## Limiter les ressources d'un conteneur
+
+Par défaut, un conteneur Docker peut utiliser autant de CPU et de mémoire RAM que l'hôte le permet. Il est possible de restreindre ces ressources pour éviter qu'un conteneur monopolise les ressources de la machine ou pour simuler un environnement contraint.
+
+### Limiter la mémoire RAM
+
+L'option `--memory` (ou `-m`) fixe la quantité maximale de RAM utilisable par le conteneur. L'option `--memory-swap` définit la limite combinée RAM + _swap_.
+ 
+```bash
+~:$ docker run -d --memory="512m" --memory-swap="512m" nginx
+```
+- le conteneur ne peut pas utiliser plus de 512 Mo de RAM;
+- `--memory-swap` égal à `--memory` désactive le swap pour ce conteneur.
+
+### Limiter le CPU
+
+Deux options principales permettent de limiter l'usage processeur :
+
+| Option | Description |
+|--|--|
+| `--cpus` | Nombre de CPU (ou fraction) alloués au conteneur |
+| `--cpu-shares` | Poids relatif en cas de contention CPU (défaut : 1024) |
+
+```bash
+~:$ docker run -d --cpus="1.5" nginx
+```
+- le conteneur ne peut pas utiliser l'équivalent de plus d'1,5 cœur CPU.
+
+```bash
+~:$ docker run -d --cpu-shares=512 nginx
+```
+- en cas de contention, ce conteneur reçoit deux fois moins de temps CPU qu'un conteneur avec la valeur par défaut (1024).
+
+### Vérifier les limites appliquées
+
+`docker stats` affiche en temps réel la consommation CPU, mémoire, réseau et disque de chaque conteneur actif :
+
+```bash
+~:$ docker stats
+CONTAINER ID   NAME      CPU %   MEM USAGE / LIMIT   MEM %   NET I/O   BLOCK I/O
+75a9ae27b43b   nginx     0.00%   3.5MiB / 512MiB     0.68%   …         …
+```
+
+`docker inspect <ID | NAME>` permet de retrouver les limites configurées dans la section `HostConfig` de la sortie JSON (`Memory`, `NanoCpus`, etc.).
+
+:::info
+La limitation des ressources s'appuie sur les **cgroups** du noyau Linux. Docker utilise _cgroup v2_ sur les distributions récentes.
+:::
+
 ## Créer ses propres images
 
 Pour créer sa propre image, il est nécessaire d'écrire un fichier `Dockerfile` précisant les couches devant se trouver dans l'image. 
@@ -405,7 +448,7 @@ COPY index.html /var/www/html/
 EXPOSE 80
 CMD nginx -g 'daemon off;'
 ```
-- la première couche est une `debian` (beaucoup utilisent _ubuntu_ car l'image est plus légère);
+- la première couche est une `debian` ;
 - la deuxième couche et commande `RUN` installe `nginx`;
 - il faut ensuite copier le fichier `index.html` — se trouvant dans le répertoire courant — dans l'image;
 - préciser que l'on expose le port 80 et lancer `nginx` en avant-plan (_foreground_). 

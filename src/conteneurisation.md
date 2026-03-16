@@ -226,10 +226,27 @@ Le template est maintenant disponible et peut être exporté.
 
 ### Docker *work arround* 
 
-Si l'on veut impérativement utiliser docker (principalement pour sa base d'images et la facilité de ses _dockerfiles_), il est possible de 
+Si l'on veut impérativement utiliser docker (principalement pour sa base d'images et la facilité de ses _dockerfiles_), il y a plusieurs manières de faire : 
 
-- installer un conteneur alpine par exemple, **avec les options _nesting_ et _keyctl_**;
-- installer docker et l'image désirée 
+- installer docker dans un conteneur LXC (par exemple un conteneur alpine **avec les options _nesting_ et _keyctl_** dans lequel, on ajoute docker et l'image désirée).
+
+    Cette solution permet d'isoler un service par conteneur mais amène des problèmes dès lors que l'on voudrait faire communiquer des conteneurs (dans des conteneurs) entre eux;
+
+    **Nous déconseillons cette solution.**
+
+- installer une _vm_ (voire plusieurs en fonction des applications) qui fera tourner (tous les) conteneurs docker.
+
+    Cette approche présente plusieurs avantages par rapport à l'installation de Docker dans un conteneur LXC :
+
+    - elle permet l'utilisation complète de fonctionnalités comme **Docker Compose**, facilitant la gestion d'applications multi-conteneurs ;
+    - elle offre une meilleure compatibilité et stabilité pour les mises à jour et l'orchestration des conteneurs ;
+    - elle simplifie la configuration réseau entre les conteneurs, (ce qui sera important pour des environnements complexes ou de production) ;
+    - elle évite les limitations liées à l'isolation des conteneurs dans des conteneurs, notamment pour la communication inter-services.
+
+
+
+
+
 
 :::danger
 Ne pas installer docker sur l'hyperviseurs « en-dessous » de proxmox. 
