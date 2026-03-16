@@ -83,7 +83,15 @@ _Les autres détails (credentials, attribution d'IP…) sont donnés au laborato
 
 ### Configuration du stockage réseau
 
-La machine `zeus` propose du stockage distant de type [iSCSI](iscsi.md). 
+Deux machines proposent du stockage réseau de type **iSCIS** : 
+
+- `zeus` implémente LIO; 
+- `truenas` propose TrueNas 
+
+_La théorie sur iSCSI se trouve sur [la page idoine](iscsi.md)._
+
+
+#### `zeus`
 
 Chaque groupe de classe dispose de :
 - **1 cible iSCSI** dédiée : `iqn.2026-03.info.esigoto.in.zeus:c21X`
@@ -137,3 +145,8 @@ Les _credentials_  (login et mot de passe) sont donnés oralement au cours.
 ::: 
 
 
+#### `truenas`
+
+`truenas` est disponible à l'adresse `192.168.217.200` (le serveur DNS de `zeus` répond cette adresse).
+
+Il sera nécessaire d'ajouter un stockage _iSCSI_ sur le NAS pour qu'il soit accessible _via_ Proxmox.
