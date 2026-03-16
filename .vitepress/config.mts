@@ -75,7 +75,7 @@ export default defineConfig({
     },
     
     outline: {
-        level: [2, 3]  // Affiche les titres de niveau 2 et 3
+        level: [2, 4]  // Affiche les titres de niveau 2 et 3
     }
   },
   markdown: {
