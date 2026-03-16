@@ -177,9 +177,3 @@ La haute disponibilité est configurable via le GUI et en ligne de commande.
 
 ![](assets/img/proxmox-gui-ha-manager-status.png "Exemple de l'interface HA de proxmox")
 
-
-## Stockage distant
-
-_iCSI_
-
-_work in progress_

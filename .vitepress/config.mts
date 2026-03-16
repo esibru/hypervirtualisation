@@ -27,9 +27,9 @@ export default defineConfig({
           { text: 'Virtualisation', link: '/virtualisation' },
           { text: 'Réseau', link: '/reseaux' },
           { text: 'Stockage', link:  '/stockage'},
-          { text: 'Conteneurisation', link: '/conteneurisation'},
           { text: 'Virtualisation 2', link: '/virtualisation-2'},
-          { text: 'Automatisation (Ansible)', link: '/ansible'}
+          { text: 'Automatisation (Ansible)', link: '/ansible'},
+          { text: 'Conteneurisation', link: '/conteneurisation'}
         ]
       },
       {
@@ -75,7 +75,7 @@ export default defineConfig({
     },
     
     outline: {
-        level: [2, 4]  // Affiche les titres de niveau 2 et 3
+        level: [2, 4]  // Affiche les titres de niveau 2 et 4
     }
   },
   markdown: {

@@ -181,4 +181,31 @@ En quelques étapes :
 
 **TrueNAS** est une solution complète et intégrée de stockage en réseau basée sur FreeBSD. Contrairement à **LIO** qui est un framework bas niveau nécessitant une configuration manuelle détaillée, TrueNAS offre une interface web intuitive et une gestion centralisée du stockage.
 
-Le serveur TrueNAS est accessible à cette addresse : https://192.168.1.200
+:::warning
+
+TrueNAS est bien plus qu'une simple solution de stockage en réseau. Elle permet également de créer des _vms_ (machines virtuelles), des conteneurs, d'installer des applications… 
+
+Son utilité est plutôt orientée « usage domestique » ou petite entreprise.
+::: 
+
+TrueNAS partie **partages** (_shares_) où l'on voit qu'il est également possible de créer de simples partages SMB/CIFS ou NFS. 
+
+![](assets/img/truenas-0.png)
+
+Configuration d'un partage iSCSI en utilisant le sorcier (_wizard_) :
+
+- création  de la cible 
+
+    ![](assets/img/truenas-1.png)
+
+- association à du _storage local_
+
+    ![](assets/img/truenas-2.png)
+
+- exposition de l'_iqn_ (dont on ne choisira pas le nom)
+    
+    ![](assets/img/truenas-3.png)
+
+La support iSCSI est alors disponible sur Proxmox
+
+![](assets/img/truenas-4.png)
