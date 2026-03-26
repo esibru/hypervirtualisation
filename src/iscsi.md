@@ -97,6 +97,7 @@ Préparer le stockage, c'est, une fois la commande `targetcli` lancée :
 
     ```bash
     /> ls /
+    /> cd /
     /> saveconfig
     /> exit
     ```
